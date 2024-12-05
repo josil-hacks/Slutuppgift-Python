@@ -1,2 +1,2 @@
 # Slutuppgift-Python
-Min slutuppgift i kursen "Systemutveckling i Python", ett övervakningsprogram för processorer skrivit i Python. Blev inte klart i tid.
+Min slutuppgift i kursen "Systemutveckling i Python", ett övervakningsprogram för processorer skrivit i Python. 
