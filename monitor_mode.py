@@ -4,7 +4,6 @@ import psutil
 import time 
 
 from larm import cpu_lista, ram_lista, disk_lista
-from larm import cpu_level, ram_level, disk_level
 
 
 # Övervakningsprogrammet ska vara inaktivt vid start
@@ -35,18 +34,16 @@ def monitoring():
             print()
 
             #För att larmet ska reagera:
-            if cpu_usage in cpu_lista:
+            if any(cpu_usage >= x for x in cpu_lista):
                 print(f"\033[31m VARNING LARM AKTIVERAT: CPU-ANVÄNDNINGEN ÄR JUST NU: {cpu_usage}%!\033[0m")
                 print()
-            if ram_usage in ram_lista:
+            if any(ram_usage >= x for x in ram_lista):
                 print(f"\033[31m VARNING LARM AKTIVERAT: RAM-ANVÄNDNINGEN ÄR JUST NU: {ram_usage}%!\033[0m")
                 print()
-            if disk_usage in disk_lista:
+            if any(disk_usage >= x for x in disk_lista):
                 print(f"\033[31m VARNING LARM AKTIVERAT: DISK-ANVÄNDNINGEN ÄR JUST NU: {disk_usage}%!\033[0m")
                 print()
             time.sleep(1)
     except KeyboardInterrupt:
         print("Övervakningsläge inaktiverat.")
         pass 
-
-
